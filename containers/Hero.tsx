@@ -16,7 +16,7 @@ const Hero = () => {
           <Button background="bg-orange" title="Shop Now" />
         </div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-center md:justify-end">
           <img
             className="h-1/2 w-1/2 lg:h-full "
             src={images.hero1.src}
