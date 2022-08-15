@@ -18,9 +18,7 @@ const Navbar = () => {
           />
           <img src={images.logo.src} className="h-20 w-24" alt="" />
         </div>
-        <div className="hidden md:flex">
-          <Sidebar />
-        </div>
+       
         <div className="flex items-center space-x-6 md:space-x-10">
           <div className="relative flex">
             <Icon icon="carbon:favorite" className="h-6 w-6 cursor-pointer" />
@@ -47,7 +45,7 @@ const Navbar = () => {
           <input
             placeholder="I'm Looking For ..."
             type="text "
-            className=" w-full px-4 outline-none "
+            className=" w-full px-4 outline-none border-r border-gray "
           />
           <select className="border-none text-sm  " name="" id="">
             <option value="all">All Dept.</option>
