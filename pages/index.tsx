@@ -8,7 +8,7 @@ import { Navbar } from "../components";
 
 const Home: NextPage = () => {
   return (
-    <div >
+    <div className='' >
       <Head>
         <title>Your App Name</title>
         <link rel="icon" href="/favicon.ico" />

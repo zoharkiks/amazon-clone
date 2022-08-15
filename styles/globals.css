@@ -2,13 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* For Custom fonts */
-/* @font-face {
-    font-family: "WorldwideHeadline";
-    src: url("../public/fonts/WorldwideHeadline.ttf");
+@font-face {
+  font-family: "ProximaExtrabold";
+  src: url("/fonts/ProximaNova-Extrabold.otf");
+  
+}
 
-    font-family: "Blooming Elegant Sans";
-    src: url("../public/fonts/Blooming\ Elegant\ Sans.otf");
+@font-face {
+  font-family: "ProximaSemibold";
+  src: url("/fonts/ProximaNova-SemiBold.otf");
+}
 
-  } */
+@font-face {
+  font-family: "ProximaRegular";
+  src: url("/fonts/ProximaNova-Regular.otf");
+}
+
+@font-face {
+  font-family: "ProximaBold";
+  src: url("/fonts/ProximaNova-Bold.otf");
+}
+

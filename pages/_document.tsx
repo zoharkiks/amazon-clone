@@ -1,30 +1,61 @@
-// // IF using google fonts
-//  import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
 
-// class MyDocument extends Document {
-//   render() {
-//     return (
-//       <Html>
-//         <Head>
-//           <link rel="preconnect" href="https://fonts.googleapis.com" />
-//           <link
-//             rel="preconnect"
-//             href="https://fonts.gstatic.com"
-//             crossOrigin="true"
-//           />
-//  {/* Add google fonts here */}
-//           <link
-//             href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Open+Sans:wght@400;600;700&family=Work+Sans:wght@700&display=swap"
-//             rel="stylesheet"
-//           />
-//         </Head>
-//         <body>
-//           <Main />
-//           <NextScript />
-//         </body>
-//       </Html>
-//     );
-//   }
-// }
+class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
 
-// export default MyDocument
+    return initialProps;
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/ProximaNova-Bold.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin="anonymous"
+          />
+
+          <link
+            rel="preload"
+            href="/fonts/ProximaNova-SemiBold.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin="anonymous"
+          />
+
+          <link
+            rel="preload"
+            href="/fonts/ProximaNova-Regular.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin="anonymous"
+          />
+
+          <link
+            rel="preload"
+            href="/fonts/ProximaNova-Extrabold.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin="anonymous"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;

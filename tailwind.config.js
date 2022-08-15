@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,18 +7,23 @@ module.exports = {
     './containers/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    // Use custom colors
-    // colors: {
-    //   'white': '#ffffff',
-    //   'black':'#000000',
-    // },
+    colors: {
+      'white': '#ffffff',
+      'lightGray':'#f6f6f6',
+      'gray':'#e4e4e4',
+      'black':'#373737',
+      'orange':'#ff9900',
+      'lightBlue':'#18a0fb',
+      'deepBlue':'#03426b',
+
+    },
     extend: {
-      // Using custom fonts
-      // fontFamily: {
-      //   worldwide: ["WorldwideHeadline", "cursive"],
-      //   blooming: ["Blooming Elegant Sans", "cursive"],
-      //   poppins: ["Poppins", 'sans-serif']
-      // },
+      fontFamily: {
+        proxima: ["ProximaRegular", ...defaultTheme.fontFamily.sans],
+        proximaSemibold: ["ProximaSemibold", ...defaultTheme.fontFamily.sans],
+        proximaExtrabold: ["ProximaExtrabold", ...defaultTheme.fontFamily.sans],
+        proximaBold: ["ProximaBold", ...defaultTheme.fontFamily.sans]
+      },
     },
   },
   plugins: [],
