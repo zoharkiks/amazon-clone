@@ -8,7 +8,7 @@ import { Navbar } from "../components";
 
 const Home: NextPage = () => {
   return (
-    <div className='text-black bg-gray h-screen' >
+    <div className='text-black bg-lightGray h-screen' >
       <Head>
         <title>Your App Name</title>
         <link rel="icon" href="/favicon.ico" />

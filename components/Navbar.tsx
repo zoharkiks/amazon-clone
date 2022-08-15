@@ -7,7 +7,7 @@ const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   return (
-    <div className=" bg-lightGray md:pt-4 px-4 pb-5 md:flex md:justify-between">
+    <div className=" bg-gray md:pt-4 px-4 pb-5 md:flex md:justify-between">
       <div className="flex items-center justify-between  ">
         {/* logo */}
         <div className="flex items-center md:hidden">
