@@ -3,18 +3,17 @@ import { images } from "../constants";
 import Button from "./Button";
 import { Icon } from "@iconify/react";
 
-const ProductCard = () => {
+const ProductCard = ({desc,price, image}) => {
   return (
     <div className="flex flex-col rounded-lg bg-white px-6 py-4 font-proxima lg:mt-8">
       <div className="my-4 flex justify-center">
-        <img className=" w-1/2" src={images.hero1.src} alt="" />
+        <img className=" w-20 h-20" src={image} alt="" />
       </div>
       <div className="flex flex-col space-y-2">
-        <span className=" font-proximaExtrabold text-2xl">$299.00</span>
+        <span className=" font-proximaExtrabold text-2xl">{price}</span>
         <span className=" font-proximaSemibold text-lg">$2.20 Shipping</span>
         <span className="w-[12rem] truncate   ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-          suscipit dolores fuga veritatis?
+       {desc}
         </span>
 
         <span className="font-proximaBold text-deepBlue">100 Reviews</span>

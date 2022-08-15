@@ -6,7 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
 
-const Personalized = () => {
+const Personalized = ({ products }) => {
+  console.log(products);
+
   return (
     <div className="mt-4 flex flex-col items-center space-y-3 px-4 md:ml-[25%] lg:ml-[15%] ">
       <h1 className="font-proximaExtrabold text-2xl lg:text-[2rem]">
@@ -16,7 +18,7 @@ const Personalized = () => {
         Best offers based on your browsing history
       </span>
 
-      <div className="flex w-full">
+      {/* <div className="flex w-full">
         <Swiper
           spaceBetween={10}
           slidesPerView={1.5}
@@ -33,13 +35,20 @@ const Personalized = () => {
         //     },
         //   }}
         >
-          <SwiperSlide>
-            <div className="flex ">
-              <ProductCard />
-            </div>
-          </SwiperSlide>
-        </Swiper>
+          <SwiperSlide> */}
+      <div className="flex space-x-10 ">
+        {products.map((product, index) => (
+          <ProductCard
+            key={index}
+            desc={product.description.slice(3, -4)}
+            price={product.price.formatted_with_symbol}
+            image={product.image.url}
+          />
+        ))}
       </div>
+      {/* </SwiperSlide> */}
+      {/* </Swiper> */}
+      {/* </div> */}
     </div>
   );
 };

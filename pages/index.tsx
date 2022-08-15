@@ -1,12 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import commerce from "../lib/commerce";
 
 // import containers
 import { Footer, Hero, Personalized } from "../containers";
 // import components
 import { Navbar, Sidebar } from "../components";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  // const merchant = await commerce.merchants.about();
+  // const { data: categories } = await commerce.categories.list();
+  const { data: products } = await commerce.products.list();
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+const Home: NextPage = ({ products }) => {
+
   return (
     <div className="bg-lightGray text-black">
       <Head>
@@ -22,7 +36,7 @@ const Home: NextPage = () => {
           <Sidebar />
         </div>
       </div>
-<Personalized/>
+      <Personalized products={products} />
 
       <Footer />
     </div>
