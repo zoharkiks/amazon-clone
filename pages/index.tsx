@@ -2,24 +2,23 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import commerce from "../lib/commerce";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+
 // import containers
 import { Footer, Hero, Personalized } from "../containers";
 // import components
 import { Navbar, Sidebar } from "../components";
+import { getAllProducts } from "../redux/productsSlice";
 
-export async function getStaticProps() {
-  // const merchant = await commerce.merchants.about();
-  // const { data: categories } = await commerce.categories.list();
-  const { data: products } = await commerce.products.list();
+const Home: NextPage = () => {
+  const dispatch = useDispatch();
 
-  return {
-    props: {
-      products,
-    },
-  };
-}
-
-const Home: NextPage = ({ products }) => {
+  useEffect(() => {
+    // get all products
+    dispatch(getAllProducts());
+  }, []);
 
   return (
     <div className="bg-lightGray text-black">
@@ -36,7 +35,7 @@ const Home: NextPage = ({ products }) => {
           <Sidebar />
         </div>
       </div>
-      <Personalized products={products} />
+      <Personalized />
 
       <Footer />
     </div>

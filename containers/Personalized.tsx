@@ -1,13 +1,17 @@
 import React from "react";
 import { ProductCard } from "../components";
 
+
 // Import Swiper Carousel
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
+import { useSelector } from "react-redux";
 
-const Personalized = ({ products }) => {
-  console.log(products);
+const Personalized = () => {
+
+const products = useSelector(state => state.products?.allProducts?.data);
+
 
   return (
     <div className="mt-4 flex flex-col items-center space-y-3 px-4 md:ml-[25%] lg:ml-[15%] ">
@@ -18,37 +22,39 @@ const Personalized = ({ products }) => {
         Best offers based on your browsing history
       </span>
 
-      {/* <div className="flex w-full">
+      <div className="w-full">
         <Swiper
-          spaceBetween={10}
+          spaceBetween={100}
           slidesPerView={1.5}
-          loop={true}
-          initialSlide={0}
+          loop={false}
+          initialSlide={1}
           freeMode={true}
           modules={[FreeMode]}
-        //   breakpoints={{
-        //     768: {
-        //       slidesPerView: 3,
-        //     },
-        //     1536: {
-        //       slidesPerView: 6,
-        //     },
-        //   }}
+          breakpoints={{
+            768: {
+              slidesPerView: 2.5,
+            },
+            1336: {
+              slidesPerView: 3.5,
+              spaceBetween: 100,
+
+            },
+          }}
         >
-          <SwiperSlide> */}
-      <div className="flex space-x-10 ">
-        {products.map((product, index) => (
-          <ProductCard
-            key={index}
-            desc={product.description.slice(3, -4)}
-            price={product.price.formatted_with_symbol}
-            image={product.image.url}
-          />
-        ))}
+          {products?.map((product) => (
+            <SwiperSlide key={product?.id}>
+              <div key={product?.id} className="flex">
+                <ProductCard
+                  key={product?.id}
+                  desc={product.description.slice(3, -4)}
+                  price={product.price.formatted_with_symbol}
+                  image={product.image.url}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-      {/* </SwiperSlide> */}
-      {/* </Swiper> */}
-      {/* </div> */}
     </div>
   );
 };

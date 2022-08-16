@@ -7,7 +7,7 @@ const ProductCard = ({desc,price, image}) => {
   return (
     <div className="flex flex-col rounded-lg bg-white px-6 py-4 font-proxima lg:mt-8">
       <div className="my-4 flex justify-center">
-        <img className=" w-20 h-20" src={image} alt="" />
+  <img className=" w-20 h-20" src={image} alt="" />
       </div>
       <div className="flex flex-col space-y-2">
         <span className=" font-proximaExtrabold text-2xl">{price}</span>
