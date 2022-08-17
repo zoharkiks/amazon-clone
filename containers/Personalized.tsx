@@ -24,7 +24,7 @@ const products = useSelector(state => state.products?.allProducts?.data);
 
       <div className="w-full">
         <Swiper
-          spaceBetween={100}
+          spaceBetween={60}
           slidesPerView={1.5}
           loop={false}
           initialSlide={1}
