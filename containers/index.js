@@ -2,5 +2,6 @@
 import  Footer  from "./Footer";
 import  Hero  from "./Hero";
 import  Personalized  from "./Personalized";
+import  Category  from "./Category";
 
-export { Footer, Hero,Personalized}
+export { Footer, Hero,Personalized,Category}

@@ -3,7 +3,7 @@ import { images } from "../constants";
 import Button from "./Button";
 import { Icon } from "@iconify/react";
 
-const ProductCard = ({desc,price, image}) => {
+const ProductCard = ({desc,price, image} :{desc:string,price:string,image:string}) => {
   return (
     <div className="flex flex-col rounded-lg bg-white px-6 py-4 font-proxima lg:mt-8">
       <div className="my-4 flex justify-center">
@@ -23,7 +23,7 @@ const ProductCard = ({desc,price, image}) => {
         </span>
       </div>
       <div className="mt-4 flex items-center space-x-20 ">
-        <Button title="Add to Cart" background="bg-orange" />
+        <Button title="Add to Cart" background="bg-white text-orange border-2 border-orange hover:bg-orange transition hover:text-white" />
         <Icon
           icon="carbon:favorite"
           className="h-6 w-6 cursor-pointer text-orange"

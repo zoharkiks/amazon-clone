@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 // import containers
-import { Footer, Hero, Personalized } from "../containers";
+import { Category, Footer, Hero, Personalized } from "../containers";
 // import components
 import { Navbar, Sidebar } from "../components";
 import { getAllProducts } from "../redux/productsSlice";
@@ -36,6 +36,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <Personalized />
+      <Category/>
 
       <Footer />
     </div>
