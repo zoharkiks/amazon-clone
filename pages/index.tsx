@@ -5,12 +5,14 @@ import commerce from "../lib/commerce";
 // Redux
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { getAllProducts } from "../redux/productsSlice";
+import { getAllCategories } from "../redux/categorySlice";
 
 // import containers
 import { Category, Footer, Hero, Personalized } from "../containers";
 // import components
 import { Navbar, Sidebar } from "../components";
-import { getAllProducts } from "../redux/productsSlice";
+
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     // get all products
     dispatch(getAllProducts());
+    dispatch(getAllCategories());
   }, []);
 
   return (
