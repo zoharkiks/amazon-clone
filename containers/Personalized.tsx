@@ -14,7 +14,7 @@ const products = useSelector(state => state.products?.allProducts?.data);
 
 
   return (
-    <div className="mt-4 flex flex-col items-center space-y-3 px-4 md:ml-[25%] lg:ml-[15%] ">
+    <div className="mt-16 flex flex-col items-center space-y-3 px-4 md:ml-[25%] lg:ml-[15%] ">
       <h1 className="font-proximaExtrabold text-2xl lg:text-[2rem]">
         Personalized Reccomendations
       </h1>

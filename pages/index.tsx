@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className="bg-lightGray text-black">
+    <div className="bg-lightGray text-black h-full">
       <Head>
         <title>Your App Name</title>
         <link rel="icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
       <Navbar />
       <div className="flex">
         <Hero />
-        <div className="hidden md:flex">
+        <div className="hidden md:flex h-full">
           <Sidebar />
         </div>
       </div>
