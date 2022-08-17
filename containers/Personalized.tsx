@@ -33,10 +33,11 @@ const products = useSelector(state => state.products?.allProducts?.data);
           breakpoints={{
             768: {
               slidesPerView: 2.5,
+              spaceBetween: 100,
+
             },
             1336: {
               slidesPerView: 3.5,
-              spaceBetween: 100,
 
             },
           }}
