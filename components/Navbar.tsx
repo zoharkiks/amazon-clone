@@ -3,12 +3,13 @@ import { Icon } from "@iconify/react";
 import { images } from "../constants";
 import Sidebar from "./Sidebar";
 import { useSelector } from "react-redux";
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
 
 const cart = useSelector(state => state.cart.cartItems);
-console.log(cart);
+const router = useRouter()
 
 
   return (
@@ -33,7 +34,7 @@ console.log(cart);
             </div>
           </div>
           <div className="relative flex">
-            <Icon className="h-6 w-6 cursor-pointer" icon="akar-icons:cart" />
+            <Icon onClick={()=>router.push('/checkout')} className="h-6 w-6 cursor-pointer" icon="akar-icons:cart" />
             <div className="absolute left-3 bottom-3 flex h-full w-full items-center justify-center rounded-xl bg-white font-proximaSemibold text-sm  text-orange">
               <span className="">{cart.length}</span>
             </div>

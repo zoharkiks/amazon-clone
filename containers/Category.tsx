@@ -12,7 +12,6 @@ const Category = () => {
 
   const categories = useSelector(state => state.category?.allCategories?.data);
 
-console.log(categories);
 
 
   return (
