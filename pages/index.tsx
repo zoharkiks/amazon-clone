@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   return (
     <div className="bg-lightGray text-black h-full">
       <Head>
-        <title>Your App Name</title>
+        <title>Amazon Clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
