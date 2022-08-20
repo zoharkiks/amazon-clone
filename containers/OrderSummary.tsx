@@ -1,31 +1,68 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { OrderCard } from "../components";
+import { Button, OrderCard } from "../components";
 
 const OrderSummary = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   console.log(cartItems);
 
   return (
-    <div className="px-4 py-5">
-      <h1 className="font-proximaExtrabold text-2xl lg:text-[2rem]">
+    <div className="h-screen px-4 py-5">
+      <h1 className="w-full font-proximaExtrabold text-2xl  md:text-center lg:text-[2rem]">
         ORDER SUMMARY
       </h1>
 
       {cartItems.length == 0 ? (
-        <h1 className="font-proximaSemibold text-xl lg:text-[2rem]">
+        <h1 className="mt-8 w-full font-proximaSemibold text-xl md:text-center lg:text-[2rem]">
           No items in cart
         </h1>
       ) : (
-        <div>
+        <div className=" md:grid grid-cols-2 justify-center ">
+
+          <div className="md:ml-[35%]">
           {cartItems.map((item) => (
-            <OrderCard
-              key={item.id}
-              image={item.image.url}
-              title={item.name}
-              price={item.price.formatted_with_symbol}
-            />
+            <div key={item.id} className="flex  justify-center">
+              <OrderCard
+                key={item.id}
+                image={item.image.url}
+                title={item.name}
+                price={item.price.formatted_with_symbol}
+              />
+            </div>
           ))}
+          </div>
+          
+<div className="
+md:flex md:justify-end
+">
+   <div className="mt-10 flex flex-col  space-y-2 rounded-lg bg-lightGray px-10 py-6 md:w-1/2  md:h-max">
+            <div className="flex justify-between ">
+              <h3 className=" font-proximaSemibold">Subtotal</h3>
+              <h3 className=" font-proximaBold">$45</h3>
+            </div>
+            <div className="flex justify-between ">
+              <h3 className=" font-proximaSemibold">Shipping Cost</h3>
+              <h3 className=" font-proximaBold">$20</h3>
+            </div>
+
+            <div className="flex justify-between ">
+              <h3 className=" font-proximaSemibold">Discount</h3>
+              <h3 className=" font-proximaBold">$10</h3>
+            </div>
+
+            <div className="mt-20 flex justify-between">
+              <h3 className=" font-proximaSemibold ">Total</h3>
+              <h3 className=" font-proximaBold">$75</h3>
+            </div>
+
+            <Button
+              title="Checkout"
+              background="bg-orange w-full text-center"
+            />
+          </div>
+
+</div>
+       
         </div>
       )}
     </div>

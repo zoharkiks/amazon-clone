@@ -47,7 +47,7 @@ const router = useRouter()
         </div>
       </div>
 
-      <form className="flex items-center justify-center order-first md:ml-[40%]" action="">
+      <form className="flex items-center justify-center order-first md:ml-[35%]" action="">
         <div className="flex h-10 rounded-lg border-none   font-proxima text-sm">
           <input
             placeholder="I'm Looking For ..."

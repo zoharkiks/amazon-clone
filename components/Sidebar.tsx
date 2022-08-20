@@ -10,7 +10,7 @@ const Sidebar = ({
   setSidebar: boolean;
 }) => {
   return (
-    <div className="xl:w[15%]  absolute  top-0 left-0 flex min-h-full w-1/2 flex-col space-y-10 bg-white  font-proximaSemibold drop-shadow-lg md:w-[25%] lg:w-[15%]">
+    <div className="xl:w[15%]  absolute  top-0 left-0 flex min-h-full w-1/2 flex-col space-y-10 bg-white  font-proximaSemibold drop-shadow-lg md:w-[15%] ">
       <div className="relative flex h-max w-full items-center justify-center bg-gray ">
         <img src={images.logo.src} className="w-32" alt="" />
         
