@@ -31,9 +31,9 @@ const OrderCard = ({
       <div className="h-1/ flex w-1/2 justify-start   ">
         <img className="max-h-32 " src={image} alt="" />
       </div>
-      <div className="flex flex-col justify-between">
-        <h2 className="font-proximaSemibold text-xl lg:text-[2rem]">{title}</h2>
-        <div className="flex justify-between">
+      <div className="flex flex-col justify-between w-1/2">
+        <h2 className="font-proximaSemibold   text-xl lg:text-[2rem]">{title}</h2>
+        <div className="flex justify-between items-center space-x-4">
           <span>{price}</span>
           <div className="flex items-center justify-between  space-x-2">
             {quantity === 1 ? (
