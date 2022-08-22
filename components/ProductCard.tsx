@@ -19,7 +19,7 @@ const ProductCard = ({
 const dispatch=useDispatch();
 
   return (
-    <div className="flex flex-col rounded-lg bg-white px-6 py-4 font-proxima lg:mt-8">
+    <div className="flex mt-6 flex-col rounded-lg bg-white px-6 py-4 font-proxima lg:mt-8">
       <div className="my-4 flex justify-center">
         <img className=" h-20 w-20" src={image} alt="" />
       </div>
