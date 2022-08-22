@@ -14,7 +14,6 @@ const OrderSummary = () => {
     })
     return {totalPrice, totalQuantity}
   }
-console.log(getTotal().totalPrice);
 
   return (
     <div className="h-screen px-4 py-5">
