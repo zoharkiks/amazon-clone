@@ -4,7 +4,17 @@ import { Button, OrderCard } from "../components";
 
 const OrderSummary = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(cartItems);
+  
+  const getTotal = () => {
+    let totalQuantity = 0
+    let totalPrice = 0
+    cartItems.forEach(item => {
+      totalQuantity += item.quantity
+      totalPrice += item.price.raw * item.quantity
+    })
+    return {totalPrice, totalQuantity}
+  }
+console.log(getTotal().totalPrice);
 
   return (
     <div className="h-screen px-4 py-5">
@@ -27,6 +37,8 @@ const OrderSummary = () => {
                 image={item.image.url}
                 title={item.name}
                 price={item.price.formatted_with_symbol}
+                quantity={item.quantity}
+                id={item.id}
               />
             </div>
           ))}
@@ -37,10 +49,10 @@ md:flex md:justify-end
 ">
    <div className="mt-10 flex flex-col  space-y-2 rounded-lg bg-lightGray px-10 py-6 md:w-1/2  md:h-max">
             <div className="flex justify-between ">
-              <h3 className=" font-proximaSemibold">Subtotal</h3>
-              <h3 className=" font-proximaBold">$45</h3>
+              <h3 className=" font-proximaSemibold">Total</h3>
+              <h3 className=" font-proximaBold">${getTotal().totalPrice}</h3>
             </div>
-            <div className="flex justify-between ">
+            {/* <div className="flex justify-between ">
               <h3 className=" font-proximaSemibold">Shipping Cost</h3>
               <h3 className=" font-proximaBold">$20</h3>
             </div>
@@ -53,7 +65,7 @@ md:flex md:justify-end
             <div className="mt-20 flex justify-between">
               <h3 className=" font-proximaSemibold ">Total</h3>
               <h3 className=" font-proximaBold">$75</h3>
-            </div>
+            </div> */}
 
             <Button
               title="Checkout"
