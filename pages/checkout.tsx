@@ -5,7 +5,7 @@ import { OrderSummary } from '../containers'
 
 const checkout = () => {
   return (
-    <div className='bg-gray text-black max-h-full'>
+    <div className='bg-gray text-black '>
         <Navbar/>
         <div className="hidden md:flex h-full">
           <Sidebar   />

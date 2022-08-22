@@ -50,13 +50,13 @@ md:flex md:justify-end
    <div className="mt-10 flex flex-col  space-y-2 rounded-lg bg-lightGray px-10 py-6 md:w-1/2  md:h-max">
             <div className="flex justify-between ">
               <h3 className=" font-proximaSemibold">Total</h3>
-              <h3 className=" font-proximaBold">${getTotal().totalPrice}</h3>
+              <h3 className=" font-proximaBold">$ {getTotal().totalPrice}</h3>
             </div>
-            {/* <div className="flex justify-between ">
-              <h3 className=" font-proximaSemibold">Shipping Cost</h3>
-              <h3 className=" font-proximaBold">$20</h3>
+            <div className="flex justify-between ">
+              <h3 className=" font-proximaSemibold">Total Items</h3>
+              <h3 className=" font-proximaBold">{getTotal().totalQuantity}</h3>
             </div>
-
+{/* 
             <div className="flex justify-between ">
               <h3 className=" font-proximaSemibold">Discount</h3>
               <h3 className=" font-proximaBold">$10</h3>

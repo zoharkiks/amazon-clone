@@ -4,7 +4,8 @@ import { images } from "../constants";
 import Button from "./Button";
 
 // reducers
-import { decrementQuantity, incrementQuantity } from "../redux/cartSlice";
+import { decrementQuantity, incrementQuantity, removeItem } from "../redux/cartSlice";
+import { Icon } from "@iconify/react";
 
 const OrderCard = ({
   image,
@@ -17,6 +18,7 @@ const OrderCard = ({
   title: string;
   price: string;
   quantity: string;
+  id:string
 }) => {
   const dispatch = useDispatch();
   return (
@@ -36,6 +38,8 @@ const OrderCard = ({
               title="+"
               background="bg-orange rounded-lg px-2 py-1"
             />
+            <Icon onClick={() => dispatch(removeItem(id))} className=" cursor-pointer w-5 h-5" icon="fluent:delete-24-regular" />
+
           </div>
         </div>
       </div>
