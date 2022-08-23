@@ -50,7 +50,9 @@ const products = useSelector(state => state.products?.allProducts?.data);
                   desc={product.description.slice(3, -4)}
                   price={product.price.formatted_with_symbol}
                   image={product.image.url}
-                  id={product}
+                  id={product.id}
+                  title={product.name}
+                  
                 />
               </div>
             </SwiperSlide>

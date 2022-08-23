@@ -1,35 +1,38 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Button, OrderCard } from "../components";
+import client from "../lib/commerce";
 
 const OrderSummary = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart?.cart?.line_items);
   
   const getTotal = () => {
     let totalQuantity = 0
     let totalPrice = 0
-    cartItems.forEach(item => {
+    cartItems?.forEach(item => {
       totalQuantity += item.quantity
       totalPrice += item.price.raw * item.quantity
     })
     return {totalPrice, totalQuantity}
   }
 
+
+
   return (
-    <div className="h-screen px-4 py-5">
+    <div className=" px-4 py-5">
       <h1 className="w-full font-proximaExtrabold text-2xl  md:text-center lg:text-[2rem]">
         ORDER SUMMARY
       </h1>
 
-      {cartItems.length == 0 ? (
+      {cartItems?.length == 0 ? (
         <h1 className="mt-8 w-full font-proximaSemibold text-xl md:text-center lg:text-[2rem]">
           No items in cart
         </h1>
       ) : (
-        <div className=" md:grid grid-cols-2 justify-center ">
+        <div className=" md:grid grid-cols-3 justify-center ">
 
-          <div className="md:ml-[35%]">
-          {cartItems.map((item) => (
+          <div className="md:ml-[35%] col-span-2">
+          {cartItems?.map((item) => (
             <div key={item.id} className="flex  justify-center">
               <OrderCard
                 key={item.id}
@@ -38,6 +41,7 @@ const OrderSummary = () => {
                 price={item.price.formatted_with_symbol}
                 quantity={item.quantity}
                 id={item.id}
+                
               />
             </div>
           ))}

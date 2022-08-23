@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import commerce from "../lib/commerce";
+import client from "../lib/commerce";
 
 // Redux
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllProducts } from "../redux/productsSlice";
 import { getAllCategories } from "../redux/categorySlice";
+import { getCart } from "../redux/cartSlice";
+
 
 // import containers
 import { Category, Footer, Hero, Personalized } from "../containers";
@@ -19,9 +21,13 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     // get all products
+    dispatch(getCart())
     dispatch(getAllProducts());
     dispatch(getAllCategories());
   }, []);
+
+
+
 
   return (
     <div className="bg-lightGray text-black h-full">

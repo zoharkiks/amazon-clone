@@ -8,8 +8,9 @@ import { useRouter } from 'next/router'
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
 
-const cart = useSelector(state => state.cart.cartItems);
+const cart = useSelector(state => state.cart.cart);
 const router = useRouter()
+console.log(cart);
 
 
   return (
@@ -34,9 +35,9 @@ const router = useRouter()
             </div>
           </div>
           <div className="relative flex">
-            <Icon onClick={()=>router.push('/checkout')} className="h-6 w-6 cursor-pointer" icon="akar-icons:cart" />
+            <Icon onClick={()=>router.push('/order-summary')} className="h-6 w-6 cursor-pointer" icon="akar-icons:cart" />
             <div className="absolute left-3 bottom-3 flex h-full w-full items-center justify-center rounded-xl bg-white font-proximaSemibold text-sm  text-orange">
-              <span className="">{cart.length}</span>
+              <span className="">{cart?.total_unique_items}</span>
             </div>
           </div>
 
