@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import commerce from "../lib/commerce";
 
 const initialState = {
+  checkout:{},
   cart: {},
   cartItems: [],
   amount: 0,
@@ -18,6 +19,10 @@ export const addItem = createAsyncThunk("cart/addItem", (id) => {
   return commerce.cart.add(id, 1);
 });
 
+
+export const checkout = createAsyncThunk("cart/checkout", (id) => {
+  return commerce.checkout.generateToken(id,{type:'cart'})
+});
 
 
 const cartSlice = createSlice({
@@ -46,6 +51,19 @@ const cartSlice = createSlice({
       state.isLoading = false;
     },
     
+
+        // Checkout
+        [checkout.pending]: (state, action) => {
+          state.isLoading = true;
+        },
+        [checkout.fulfilled]: (state, action) => {
+          (state.isLoading = false), (state.checkout = action.payload);
+        },
+        [checkout.rejected]: (state, action) => {
+          state.isLoading = false;
+        },
+
+
   },
 });
 
