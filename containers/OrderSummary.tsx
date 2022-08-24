@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Button, OrderCard } from "../components";
-import client from "../lib/commerce";
+
 
 const OrderSummary = () => {
   const cartItems = useSelector((state) => state.cart?.cart?.line_items);
@@ -39,7 +39,7 @@ const OrderSummary = () => {
                 image={item.image.url}
                 title={item.name}
                 price={item.price.formatted_with_symbol}
-                quantity={item.quantity}
+                quantity={Number(item.quantity)}
                 id={item.id}
                 
               />
