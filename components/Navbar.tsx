@@ -10,7 +10,6 @@ const Navbar = () => {
 
 const cart = useSelector(state => state.cart.cart);
 const router = useRouter()
-console.log(cart);
 
 
   return (

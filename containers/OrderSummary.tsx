@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, OrderCard } from "../components";
-import { checkout } from "../redux/cartSlice";
+import { checkout, getCart } from "../redux/cartSlice";
+import { useRouter } from "next/router";
 
 const OrderSummary = () => {
   const cartItems = useSelector((state) => state.cart?.cart?.line_items);
   const cartId = useSelector((state) => state?.cart?.cart?.id);
+  const checkoutUrl = useSelector(
+    (state) => state.cart?.cart?.hosted_checkout_url
+  );
+  const checkoutData = useSelector((state) => state?.cart?.checkout);
 
   const dispatch = useDispatch();
+  const router = useRouter();
+
 
   const getTotal = () => {
     let totalQuantity = 0;
@@ -19,7 +26,12 @@ const OrderSummary = () => {
     return { totalPrice, totalQuantity };
   };
 
-  console.log(cartId);
+useEffect(() => {
+  dispatch(getCart())
+
+ 
+}, [])
+
 
   return (
     <div className=" px-4 py-5">
@@ -75,11 +87,14 @@ md:flex md:justify-end
               <h3 className=" font-proximaBold">$75</h3>
             </div> */}
 
-              <Button
-                title="Checkout"
-                background="bg-orange w-full text-center"
-                onClick={() => dispatch(checkout(cartId))}
-              />
+              <a href={checkoutUrl} target={"_blank"} rel={"noreferrer"}>
+                {" "}
+                <Button
+                  title="Checkout"
+                  background="bg-orange w-full text-center"
+                  onClick={() => dispatch(checkout(cartId))}
+                />
+              </a>
             </div>
           </div>
         </div>
