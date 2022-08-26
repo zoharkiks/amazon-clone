@@ -4,6 +4,8 @@ import Button from "./Button";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
 import { addItem, addToCart } from "../redux/cartSlice";
+import { getProduct } from "../redux/productsSlice";
+import { useRouter } from "next/router";
 
 const ProductCard = ({
   desc,
@@ -11,21 +13,31 @@ const ProductCard = ({
   image,
   id,
   title,
-  quantity
 }: {
   desc: string;
   price: string;
   image: string;
   id: string;
   title: string;
-  quantity:number
+  quantity: number;
 }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
+
+  const handleProduct = () => {
+    dispatch(getProduct(id))
+    router.push(`/details/${id}`)
+  };
 
   return (
     <div className="mt-6 flex flex-col rounded-lg bg-white px-6 py-4 font-proxima lg:mt-8">
       <div className="my-4 flex justify-center">
-        <img className=" h-20 w-20" src={image} alt="" />
+        <img
+          onClick={() => handleProduct()}
+          className=" h-20 w-20"
+          src={image}
+          alt=""
+        />
       </div>
       <div className="flex flex-col space-y-2">
         <span className=" font-proximaExtrabold text-2xl">{price}</span>

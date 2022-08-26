@@ -3,10 +3,10 @@ import { Button } from "../components";
 import { images } from "../constants";
 import { Icon } from "@iconify/react";
 
-const ProductDetails = () => {
+const ProductDetails = ({productName}:{productName:string}) => {
   return (
-    <div className="bg-lightGray px-4 font-proxima ">
-      <h1 className=" font-proximaExtrabold">My Amazing Product</h1>
+    <div className="bg-lightGray px-4 py-6 font-proxima  ">
+      <h1 className=" font-proximaExtrabold text-2xl">My Amazing Product</h1>
       <div className="">
         <img src={images.hero1.src} alt="" />
       </div>
